@@ -1,13 +1,16 @@
 using System.Data.Common;
+using Microsoft.EntityFrameworkCore;
 using WebSitem.Data.Db;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
 builder.Services.AddDbContext<WebSitemDataContext>(x =>
 {
-    x.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"));
+    x.UseSqlServer(builder.Configuration.GetConnectionString("SqlBaglantim"));
 });
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
